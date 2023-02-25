@@ -13,7 +13,7 @@ sap.ui.define([
         return UIComponent.extend("lz.zlzpsapobject.Component", {
             metadata: {
                 manifest: "json", 
-                fconfig:  { "fullWidth": true }
+                config:  { "fullWidth": true }
             },
 
             /**
