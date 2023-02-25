@@ -1,0 +1,72 @@
+<mvc:View controllerName="lz.zlzpsapobject.controller.Index" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core">
+    <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}" class="sapUiNoContentPadding">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle id="dynamicPageTitle">
+                <f:heading>
+                    <Title text="{i18n>title}" />
+                </f:heading>
+                <f:expandedContent />
+                <f:content />
+                <f:actions />
+                <f:navigationActions />
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <smartFilterBar:SmartFilterBar xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" id="sfb_sap_objects" entitySet="ZLZDDL_SAP_OBJECTS" persistencyKey="SmartFilter_Explored" liveMode="true">
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="Author" visibleInAdvancedArea="true" id="filterAuthor" />
+                    </smartFilterBar:controlConfiguration>
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="CreatedOn" visibleInAdvancedArea="true" id="filterCreatedOd" />
+                    </smartFilterBar:controlConfiguration>
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="Devclass" visibleInAdvancedArea="true" id="filterDevclass" />
+                    </smartFilterBar:controlConfiguration>
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="ObjectName" visibleInAdvancedArea="true" id="filterObjectName" />
+                    </smartFilterBar:controlConfiguration>
+                </smartFilterBar:SmartFilterBar>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <smartTable:SmartTable
+                xmlns:smartTable="sap.ui.comp.smarttable"
+                xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+                id="st_sap_object"
+                entitySet="ZLZDDL_SAP_OBJECTS"
+                smartFilterId="sfb_sap_objects"
+                tableType="Table"
+                header="{i18n>items}"
+                persistencyKey="SmartTableAnalytical_Explored"
+                class="sapUiResponsiveContentPadding"
+                app:useSmartToggle="true"
+                initiallyVisibleFields="Pgmid,Object,ObjectName,Author,AuthorName,Devclass,Genflag,Masterlang,Delflag,CreatedOn"
+                enableAutoBinding="true"
+                showFullScreenButton="true"
+                beforeRebindTable="onBeforeRebindSmartTable"
+                placeToolbarInTable="true"
+            >
+                <smartTable:customToolbar>
+                    <OverflowToolbar design="Transparent" id="stickyToolbar" class="stickyToolbar">
+                        <ToolbarSpacer id="toolbarSpacer"/>
+                         <OverflowToolbarButton id="OverflowToolbarButtonRefresh" icon="sap-icon://refresh" tooltip="{i18n>refresh}" press="onRefreshSmartTable" />
+                    </OverflowToolbar>
+                </smartTable:customToolbar>
+                <Table id="table" includeItemInSelection="true" mode="MultiSelect" fixedLayout="true" contextualWidth="auto" autoPopinMode="true" growing="true" growingScrollToLoad="true" sticky="ColumnHeaders,HeaderToolbar">
+                    <columns>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </smartTable:SmartTable>
+        </f:content>
+        <f:footer>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>
