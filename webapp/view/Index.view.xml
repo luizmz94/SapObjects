@@ -1,7 +1,7 @@
 <mvc:View controllerName="lz.zlzpsapobject.controller.Index" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core">
     <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}" class="sapUiNoContentPadding">
         <!-- DynamicPage Title -->
-        <f:title>
+        <!-- <f:title>
             <f:DynamicPageTitle id="dynamicPageTitle">
                 <f:heading>
                     <Title text="{i18n>title}" />
@@ -11,7 +11,7 @@
                 <f:actions />
                 <f:navigationActions />
             </f:DynamicPageTitle>
-        </f:title>
+        </f:title> -->
         <f:header>
             <f:DynamicPageHeader pinnable="true">
                 <smartFilterBar:SmartFilterBar xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" id="sfb_sap_objects" entitySet="ZLZDDL_SAP_OBJECTS" persistencyKey="SmartFilter_Explored" liveMode="true">
@@ -42,7 +42,7 @@
                 persistencyKey="SmartTableAnalytical_Explored"
                 class="sapUiResponsiveContentPadding"
                 app:useSmartToggle="true"
-                initiallyVisibleFields="Pgmid,Object,ObjectName,Author,AuthorName,Devclass,Genflag,Masterlang,Delflag,CreatedOn"
+                initiallyVisibleFields="Pgmid,Object,ObjectName,Author,Devclass,Genflag,Masterlang,Delflag,CreatedOn"
                 enableAutoBinding="true"
                 showFullScreenButton="true"
                 beforeRebindTable="onBeforeRebindSmartTable"
@@ -54,7 +54,7 @@
                          <OverflowToolbarButton id="OverflowToolbarButtonRefresh" icon="sap-icon://refresh" tooltip="{i18n>refresh}" press="onRefreshSmartTable" />
                     </OverflowToolbar>
                 </smartTable:customToolbar>
-                <Table id="table" includeItemInSelection="true" mode="MultiSelect" fixedLayout="true" contextualWidth="auto" autoPopinMode="true" growing="true" growingScrollToLoad="true" sticky="ColumnHeaders,HeaderToolbar">
+                <Table id="table" includeItemInSelection="true" mode="MultiSelect" fixedLayout="true" contextualWidth="auto" autoPopinMode="true" growing="true" growingThreshold="40" growingScrollToLoad="true" sticky="ColumnHeaders,HeaderToolbar">
                     <columns>
                     </columns>
                     <items>

@@ -14,10 +14,13 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          destination: Redware
           url: http://vm29.4hub.cloud:52900
+          client: "100"
+        credentials:
+          username: env:XYZ_USER
+          password: env:XYZ_PASSWORD
         app:
-          name: ZLZBSP_SAP_OBJ
+          name: ZLZBSP_SAPOBJ
           description: SAP Objects
           package: ZLZANELLA
           transport: S4HK901904
